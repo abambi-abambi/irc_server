@@ -1,0 +1,80 @@
+https://www.youtube.com/watch?v=I9o-oTdsMgI
+Путеводитель по irc
+
+
+https://beej.us/guide/bgnet/translations/bgnet_A4_rus.pdf
+Сетевое    программирование    от    Биджа    
+Использование    Интернет    Сокетов
+
+
+Репозитории с ирк:
+https://github.com/levensta/IRC-Server
+https://github.com/pllucian/ft_irc/blob/master/srcs/IRC.cpp
+
+
+Документация:
+https://datatracker.ietf.org/doc/html/rfc1459
+Internet Relay Chat Protocol
+
+https://datatracker.ietf.org/doc/html/rfc2812
+Internet Relay Chat: Client Protocol
+
+https://modern.ircdocs.horse/
+Modern IRC Client Protocol
+
+https://modern.ircdocs.horse/formatting.html
+IRC Formatting
+
+https://twistedmatrix.com/documents/current/api/twisted.words.protocols.irc.html
+
+https://ru.wikipedia.org/wiki/%D0%A1%D0%BF%D0%B8%D1%81%D0%BE%D0%BA_IRC-%D0%BA%D0%BE%D0%BC%D0%B0%D0%BD%D0%B4
+Список IRC-команд
+
+https://irc.readthedocs.io/quick-start.html
+"Сущность IRC каналов такова, что они создаются в момент, когда туда заходит первый пользователь и удаляются, когда все пользователи его покинули."
++ Описание работы с KVirc
+
+http://moepii.sourceforge.net/irclib/javadoc/org/schwering/irc/lib/IRCConstants.html#ERR_NOSERVICEHOST
+ERR_NOSERVICEHOST
+
+
+Команды для реализации в проекте:
+! 1-й человек, который зашел в канал, - является оператором
+Команды регистрации:
+PASS
+NICK
+USER
+Команда сообщения:
+PRIVMSG #ch1/user_x "text_of_message" - сообщение себе
+NOTICE #ch1/user_x "text_of_message"
+Команда на присоединение/создание канала:
+JOIN #talks
+("If a JOIN is successful, the user receives a JOIN message as
+   confirmation and is then sent the channel's topic (using RPL_TOPIC) and
+   the list of users who are on the channel (using RPL_NAMREPLY), which
+   MUST include the user joining.")
+Хотя бы одна команда для оператора, обычно это:
+KICK #talks user_name
+Все остальные команды - необязательные
+
+Бонус:
+/DCC send your_nick
+
+Можно добавить:
+	// 381: RPL_YOUREOPER
+	// :prefix 381 <target> :You are now an IRC Operator
+
+
+Баги KVIrc клиента:
+https://github.com/kvirc/KVIrc/issues/36?ysclid=l6glfydxqk999783930
+DCC resume bug
+
+https://github.com/kiwiirc/kiwibnc/issues/39?ysclid=l6wd7vfd5d648845116
+[Server parser]: encountered problems while parsing the following message:
+[Server parser]: [n9!q1@127.0.0.1][JOIN] #2
+[Server parser]: Received a join message for an unknown channel, possible desync
+"This is a bug in kvirc and reported to the devs".
+
+https://kvirc.blogspot.com/2006/09/kvirc_10.html
+KVIrc/полное руководство пользователя
+"В случае, если на канале будет занят ваш основной ник, то KVIrc автоматически начнет перебирать альтернативные ники."

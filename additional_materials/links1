@@ -1,0 +1,27 @@
+
+1. Запуск сервера из сабджекта:
+cd '/home/abambi/Far_before/ft_irc/bircd' 
+make
+./bircd 6667
+
+2. Запуск клиента (2 раза - по одному в терминале):
+ nc localhost 6667
+ nc localhost 6667
+
+После этого можно в одном клиенте писать сообщение, его получает второй клиент.
+
+https://losst.ru/komanda-nc-v-linux
+Команда nc (netcat) в Линукс
+
+3. После скачиваем настоящий клиент:
+sudo apt install kvirc
+
+Открываем, запускается мастер настроек, настраиваем и затем запускается:
+kvirc
+
+Запускаем второй такой же клиент через кнопку в его панели, или через команду:
+kvirc -f
+
+https://www.youtube.com/watch?v=cNdlrbZSkyQ
+c++ server linux: theory
+
